@@ -9,6 +9,7 @@ interface MainPageProps {
   extraClass?: string;
 }
 
+
 export const MainPage: React.FC<MainPageProps> = ({ extraClass = "" }) => {
   return (
     <main className={`${styles.content} ${extraClass}`}>
