@@ -1,3 +1,4 @@
+import { fireEvent, render, screen } from "@testing-library/react";
 import { Button } from "./button";
 import renderer from "react-test-renderer";
 
@@ -20,4 +21,12 @@ describe("test Button component", ()=>{
         const tree = renderer.create(<Button isLoader/>).toJSON();
         expect(tree).toMatchSnapshot();
     })
-})
+    
+  it("call callback", () => {
+    const click = jest.fn();
+    render(<Button onClick={click} text={buttonText}/>);
+    const button = screen.getByText(buttonText);
+    fireEvent.click(button);
+    expect(click).toHaveBeenCalledTimes(1);
+  });
+});
