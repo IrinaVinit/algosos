@@ -14,6 +14,7 @@ export function getNewArray() {
 }
 
 export const swap = (arr: any, start: number, end: number) => {
+  if(!arr.length) return [];
   [arr[start], arr[end]] = [arr[end], arr[start]];
 };
 
