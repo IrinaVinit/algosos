@@ -15,4 +15,7 @@ describe("Test of String Component", () => {
   test("с одним символом", async () => {
     expect(await changeElements(["Q"], 0, ["Q"].length - 1)).toEqual(["Q"]);
   });
+  test("пустая строка", async () => {
+    expect(await changeElements([], 0, 0)).toEqual([undefined]);
+  });
 });

@@ -10,11 +10,11 @@ export async function sortSelection(arr: CircleElement[], direction: Direction, 
     const { length } = arr;
     for (let i = 0; i < length; i++) {
       let minInd = i;
-      setState && changeColor(arr, minInd, ElementStates.Changing);
+      changeColor(arr, minInd, ElementStates.Changing);
       for (let j = i + 1; j < length; j++) {
-        setState && changeColor(arr, j, ElementStates.Changing);
+        changeColor(arr, j, ElementStates.Changing);
         setState && setState([...arr]);
-        await timeout(DELAY_IN_MS);
+        setState && await timeout(DELAY_IN_MS);
         if (
           direction === Direction.Ascending
             ? arr[j].item < arr[minInd].item
@@ -23,27 +23,28 @@ export async function sortSelection(arr: CircleElement[], direction: Direction, 
           minInd = j;
           
           if (minInd !== i) {
-            setState && changeColor(arr, minInd, ElementStates.Default);
+           changeColor(arr, minInd, ElementStates.Default);
           }
         }
         if (j !== minInd) {
-          setState && changeColor(arr, j, ElementStates.Default);
+          changeColor(arr, j, ElementStates.Default);
         }
         setState && setState([...arr]);
       }
       swap(arr, i, minInd);
-      setState && changeTwoColor(arr, minInd, i, ElementStates.Default, ElementStates.Modified);
+      changeTwoColor(arr, minInd, i, ElementStates.Default, ElementStates.Modified);
       setState && setState([...arr]);
     }
+    return arr;
   }
 
-  async function bubbleSorting(arr: CircleElement[], direction: Direction, setState: React.Dispatch<React.SetStateAction<CircleElement[]>>) {
+  export async function bubbleSorting(arr: CircleElement[], direction: Direction, setState?: React.Dispatch<React.SetStateAction<CircleElement[]>>) {
     const { length } = arr;
     for (let i = 0; i < length; i++) {
       for (let j = 0; j < length - i - 1; j++) {
         changeTwoColor(arr, j, j + 1, ElementStates.Changing, ElementStates.Changing);
-        setState([...arr]);
-        await timeout(DELAY_IN_MS);
+        setState && setState([...arr]);
+        setState && await timeout(DELAY_IN_MS);
         if (
           direction === Direction.Ascending
             ? arr[j + 1].item < arr[j].item
@@ -52,11 +53,12 @@ export async function sortSelection(arr: CircleElement[], direction: Direction, 
           swap(arr, j, j + 1);
         }
         changeTwoColor(arr, j, j + 1, ElementStates.Default, ElementStates.Default);
-        setState([...arr]);
+        setState && setState([...arr]);
       }
       changeColor(arr, length - i - 1, ElementStates.Modified);
-      setState([...arr]);
+      setState && setState([...arr]);
     }
+    return arr;
   }
 
   export async function sortInAscending(sortingType: Sorting, arr: CircleElement[], setState: React.Dispatch<React.SetStateAction<CircleElement[]>>) {
