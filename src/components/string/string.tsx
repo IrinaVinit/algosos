@@ -22,6 +22,7 @@ const initialStateActiveElement = {
   disabled: false,
 };
 
+
 export const StringComponent: React.FC = () => {
   const [value, setValue] = useState<string>("");
   const [isReverseArr, setReverseArr] = useState<ReverseElement[]>([]);
