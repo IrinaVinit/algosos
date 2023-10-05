@@ -1,5 +1,5 @@
 describe('все страницы доступны', () => {
-    beforeEach(function() {
+    beforeEach(() => {
         cy.visit('/');
         cy.contains('МБОУ АЛГОСОШ');
       });
