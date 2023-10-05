@@ -3,13 +3,14 @@
 exports[`test Circle component render with changing state 1`] = `
 <div
   className="content "
-  data-cy="circle"
+  data-cy="circle-content"
 >
   <div
     className="text text_type_input text_color_input mb-4 absolute head element"
   />
   <div
     className="circle   changing"
+    data-cy="circle"
   >
     <p
       className="text text_type_circle text_color_input letter"
@@ -27,13 +28,14 @@ exports[`test Circle component render with changing state 1`] = `
 exports[`test Circle component render with default state 1`] = `
 <div
   className="content "
-  data-cy="circle"
+  data-cy="circle-content"
 >
   <div
     className="text text_type_input text_color_input mb-4 absolute head element"
   />
   <div
     className="circle   default"
+    data-cy="circle"
   >
     <p
       className="text text_type_circle text_color_input letter"
@@ -51,7 +53,7 @@ exports[`test Circle component render with default state 1`] = `
 exports[`test Circle component render with head-element 1`] = `
 <div
   className="content "
-  data-cy="circle"
+  data-cy="circle-content"
 >
   <div
     className="text text_type_input text_color_input mb-4 absolute head element"
@@ -64,6 +66,7 @@ exports[`test Circle component render with head-element 1`] = `
   </div>
   <div
     className="circle   default"
+    data-cy="circle"
   >
     <p
       className="text text_type_circle text_color_input letter"
@@ -81,7 +84,7 @@ exports[`test Circle component render with head-element 1`] = `
 exports[`test Circle component render with head-string 1`] = `
 <div
   className="content "
-  data-cy="circle"
+  data-cy="circle-content"
 >
   <div
     className="text text_type_input text_color_input mb-4 absolute head string"
@@ -90,6 +93,7 @@ exports[`test Circle component render with head-string 1`] = `
   </div>
   <div
     className="circle   default"
+    data-cy="circle"
   >
     <p
       className="text text_type_circle text_color_input letter"
@@ -107,13 +111,14 @@ exports[`test Circle component render with head-string 1`] = `
 exports[`test Circle component render with index 1`] = `
 <div
   className="content "
-  data-cy="circle"
+  data-cy="circle-content"
 >
   <div
     className="text text_type_input text_color_input mb-4 absolute head element"
   />
   <div
     className="circle   default"
+    data-cy="circle"
   >
     <p
       className="text text_type_circle text_color_input letter"
@@ -133,13 +138,14 @@ exports[`test Circle component render with index 1`] = `
 exports[`test Circle component render with isSmall 1`] = `
 <div
   className="content "
-  data-cy="circle"
+  data-cy="circle-content"
 >
   <div
     className="text text_type_input text_color_input mb-4 absolute head element"
   />
   <div
     className="circle  small default"
+    data-cy="circle"
   >
     <p
       className="text text_type_circle text_color_input letter"
@@ -157,13 +163,14 @@ exports[`test Circle component render with isSmall 1`] = `
 exports[`test Circle component render with letter 1`] = `
 <div
   className="content "
-  data-cy="circle"
+  data-cy="circle-content"
 >
   <div
     className="text text_type_input text_color_input mb-4 absolute head element"
   />
   <div
     className="circle   default"
+    data-cy="circle"
   >
     <p
       className="text text_type_circle text_color_input letter"
@@ -183,13 +190,14 @@ exports[`test Circle component render with letter 1`] = `
 exports[`test Circle component render with modified state 1`] = `
 <div
   className="content "
-  data-cy="circle"
+  data-cy="circle-content"
 >
   <div
     className="text text_type_input text_color_input mb-4 absolute head element"
   />
   <div
     className="circle   modified"
+    data-cy="circle"
   >
     <p
       className="text text_type_circle text_color_input letter"
@@ -207,13 +215,14 @@ exports[`test Circle component render with modified state 1`] = `
 exports[`test Circle component render with tail-element 1`] = `
 <div
   className="content "
-  data-cy="circle"
+  data-cy="circle-content"
 >
   <div
     className="text text_type_input text_color_input mb-4 absolute head element"
   />
   <div
     className="circle   default"
+    data-cy="circle"
   >
     <p
       className="text text_type_circle text_color_input letter"
@@ -237,13 +246,14 @@ exports[`test Circle component render with tail-element 1`] = `
 exports[`test Circle component render with tail-string 1`] = `
 <div
   className="content "
-  data-cy="circle"
+  data-cy="circle-content"
 >
   <div
     className="text text_type_input text_color_input mb-4 absolute head element"
   />
   <div
     className="circle   default"
+    data-cy="circle"
   >
     <p
       className="text text_type_circle text_color_input letter"
@@ -263,13 +273,14 @@ exports[`test Circle component render with tail-string 1`] = `
 exports[`test Circle component render without letter 1`] = `
 <div
   className="content "
-  data-cy="circle"
+  data-cy="circle-content"
 >
   <div
     className="text text_type_input text_color_input mb-4 absolute head element"
   />
   <div
     className="circle   default"
+    data-cy="circle"
   >
     <p
       className="text text_type_circle text_color_input letter"

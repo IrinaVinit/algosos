@@ -45,8 +45,8 @@ export const StackPage: React.FC = () => {
     setIsLoading(initialState);
   }
 
-  async function visualiseDeleting () {
-    setIsLoading({loadingAdd: false, loadingDel: true, loadingClear: false});
+  async function visualiseDeleting() {
+    setIsLoading({ loadingAdd: false, loadingDel: true, loadingClear: false });
     await deleteElement(myStack, setStackState);
     setIsLoading(initialState);
   }
@@ -55,15 +55,17 @@ export const StackPage: React.FC = () => {
     <SolutionLayout title="Стек">
       <div className={styles.container}>
         <div className={styles.controls}>
-          <Input isLimitText maxLength={4} value={value} onChange={onChange} />
+          <Input isLimitText maxLength={4} value={value} onChange={onChange} data-cy="input-stack"/>
           <Button
             text="Добавить"
             isLoader={isLoading.loadingAdd}
             disabled={!value || isLoading.loadingDel || isLoading.loadingClear}
+            data-cy="button-stack-add"
             onClick={() => visualiseAdding(value)}
           />
           <Button
             text="Удалить"
+            data-cy="button-stack-delete"
             isLoader={isLoading.loadingDel}
             disabled={
               !stackState.length || isLoading.loadingAdd || isLoading.loadingClear
@@ -73,10 +75,9 @@ export const StackPage: React.FC = () => {
         </div>
         <Button
           text="Очистить"
+          data-cy="button-stack-clear"
           isLoader={isLoading.loadingClear}
-          disabled={
-            !stackState.length || isLoading.loadingAdd || isLoading.loadingDel
-          }
+          disabled={!stackState.length || isLoading.loadingAdd || isLoading.loadingDel}
           onClick={() => clearStack(myStack, setStackState)}
         />
       </div>
