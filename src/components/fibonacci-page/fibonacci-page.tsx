@@ -54,6 +54,7 @@ export const FibonacciPage: React.FC = () => {
           max={19}
           value={value}
           isLimitText
+          data-cy='input-fib'
           onChange={onChange}
           disabled={isLoading.disabledInput}
         />
@@ -62,6 +63,7 @@ export const FibonacciPage: React.FC = () => {
           onClick={onClick}
           extraClass={styles.button}
           text="Рассчитать"
+          data-cy='button-fib'
           disabled={!value || isLoading.disabledButton}
           isLoader={isLoading.loading}
         />
