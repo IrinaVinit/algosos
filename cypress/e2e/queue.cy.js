@@ -3,7 +3,7 @@ import {
   checkPrevCircleContentInQueue,
   clearQueue,
   deleteElementInQueue,
-} from "./utils";
+} from "./queue-utils";
 
 describe("очередь", () => {
   beforeEach(() => {
