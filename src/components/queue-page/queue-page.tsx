@@ -80,18 +80,21 @@ export const QueuePage: React.FC = () => {
             isLimitText
             maxLength={4}
             value={value}
+            data-cy="input-queue"
             onChange={onChange}
             placeholder="Введите значение"
           />
           <Button
             text="Добавить"
             isLoader={isLoading.loadingAdd}
+            data-cy="button-queue-add"
             disabled={!value || isLoading.loadingDel || isLoading.loadingClear}
             onClick={() => visualiseAddingValue(value)}
           />
           <Button
             text="Удалить"
             isLoader={isLoading.loadingDel}
+            data-cy="button-queue-delete"
             disabled={!isQueue || isLoading.loadingAdd || isLoading.loadingClear}
             onClick={visualiseDeleting}
           />
@@ -100,6 +103,7 @@ export const QueuePage: React.FC = () => {
           text="Очистить"
           isLoader={isLoading.loadingClear}
           disabled={!isQueue || isLoading.loadingAdd || isLoading.loadingDel}
+          data-cy="button-queue-clear"
           onClick={clearQueue}
         />
       </div>

@@ -1,10 +1,6 @@
-describe("стэк", () => {
-  const CircleBorder = {
-    Default: "rgb(0, 50, 255)",
-    Changing: "rgb(210, 82, 225)",
-    Modified: "rgb(127, 224, 81)",
-  };
+import { CircleBorder } from "./constants";
 
+describe("стэк", () => {
     beforeEach(() => {
       cy.visit("/stack");
       cy.get('[data-cy="input-stack"]').type('key');
@@ -56,3 +52,4 @@ describe("стэк", () => {
     });
    
   
+    
