@@ -85,7 +85,7 @@ export const addByIndex = (el, index) => {
   cy.get('[data-cy="circle"]')
     .eq(index)
     .should("have.css", "border-color", CircleBorder.Default);
-  cy.get('[data-cy="circle"]').should("have.length", "5");
+  cy.get('[data-cy="circle"]').should("have.length", 5);
   cy.get('[data-cy="button-list-addIndex"] img').should("not.exist");
 };
 
@@ -135,11 +135,12 @@ export const deleteByIndex = (index) => {
       .should("have.css", "border-color", CircleBorder.Changing);
   }
 
-  cy.get('[data-cy="circle"]').eq(index).should("contain", "");
   cy.get('[data-cy="circle"]')
     .eq(index)
-    .should("have.css", "border-color", CircleBorder.Changing);
-  cy.get('[data-cy="circle"]').should("have.length", "3");
-  cy.get('[data-cy="circle"]').should("have.css", "border-color", CircleBorder.Default);
+    .should("contain", "")
+    .and("have.css", "border-color", CircleBorder.Changing);
+  cy.get('[data-cy="circle"]')
+    .should("have.length", "3")
+    .and("have.css", "border-color", CircleBorder.Default);
   cy.get('[data-cy="button-list-removeIndex"] img').should("not.exist");
 };
