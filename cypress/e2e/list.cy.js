@@ -28,7 +28,7 @@ describe("лист", () => {
     cy.get('[data-cy="circle-content"] div[data-cy="circle-head"]')
       .first()
       .should("contain", "head");
-    cy.get('[data-cy="circle-content"] div[data-cy="circle-tail"]')
+    cy.get('[data-cy="circle-content"] [data-cy="circle-tail"]')
       .last()
       .should("contain", "tail");
   });
