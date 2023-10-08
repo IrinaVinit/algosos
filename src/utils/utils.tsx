@@ -64,7 +64,7 @@ export async function changeElements(
     reverseArrFn && await timeout(DELAY_IN_MS);
     reverseArrFn && changeTwoColor(arr, start, end, ElementStates.Changing, ElementStates.Changing);
     reverseArrFn && reverseArrFn([...arr]);
-    await timeout(DELAY_IN_MS);
+    reverseArrFn && await timeout(DELAY_IN_MS);
     swap(arr, start, end);
     reverseArrFn && changeTwoColor(arr, start, end, ElementStates.Modified, ElementStates.Modified);
     reverseArrFn && reverseArrFn([...arr]);

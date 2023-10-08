@@ -43,7 +43,7 @@ export const Circle: React.FC<CircleProps> = ({
           {letter}
         </p>
       </div>
-      <p
+      <p data-cy='circle-index'
         className={`text text_type_input text_color_input mt-4 ${styles.absolute} ${styles.index}`}
       >
         {index?.toString()}

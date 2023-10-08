@@ -4,6 +4,7 @@ import { CircleElement } from "../../types/common-types";
 import { ElementStates } from "../../types/element-states";
 import { timeout } from "../../utils/utils";
 import { LinkedList } from "./LinkedList";
+import { Circle } from "../ui/circle/circle";
 
 export function getCircle(
   list: LinkedList<string>,
@@ -144,18 +145,24 @@ export async function addElementByIndex(
 
 export async function removeElementFromHead(
   list: LinkedList<string>,
-  newCircle: ReactElement<CircleElement>,
   arr: CircleElement[],
   setState: React.Dispatch<React.SetStateAction<CircleElement[]>>
 ) {
   list.deleteHead();
-  arr[0].state = ElementStates.Changing;
-  setState([...arr]);
-  await timeout(DELAY_IN_MS);
+  const letter = arr[0].item;
+  const rCircle = (
+    <Circle
+      data-cy="smallCircle"
+      letter={letter}
+      state={ElementStates.Changing}
+      isSmall
+    />
+  );
+
   arr[0] = {
     item: "",
     head: "head",
-    tail: newCircle,
+    tail: rCircle,
     state: ElementStates.Changing,
   };
   setState([...arr]);
@@ -169,17 +176,23 @@ export async function removeElementFromHead(
 
 export async function removeElementFromTail(
   list: LinkedList<string>,
-  newCircle: ReactElement<CircleElement>,
   arr: CircleElement[],
   setState: React.Dispatch<React.SetStateAction<CircleElement[]>>
 ) {
   const length = list.getSize() - 1;
-  arr[length].state = ElementStates.Changing;
-  setState([...arr]);
-  await timeout(DELAY_IN_MS);
+  const letter = arr[length].item;
+  const rCircle = (
+    <Circle
+      data-cy="smallCircle"
+      letter={letter}
+      state={ElementStates.Changing}
+      isSmall
+    />
+  );
+
   arr[length] = {
     item: "",
-    tail: newCircle,
+    tail: rCircle,
     state: ElementStates.Changing,
   };
   setState([...arr]);
@@ -196,7 +209,6 @@ export async function removeElementFromTail(
 export async function removeElementByIndex(
   index: number,
   list: LinkedList<string>,
-  newCircle: ReactElement<CircleElement>,
   arr: CircleElement[],
   setState: React.Dispatch<React.SetStateAction<CircleElement[]>>
 ) {
@@ -205,9 +217,19 @@ export async function removeElementByIndex(
     setState([...arr]);
     await timeout(DELAY_IN_MS);
   }
+  const letter = arr[index].item;
+  const rCircle = (
+    <Circle
+      data-cy="smallCircle"
+      letter={letter}
+      state={ElementStates.Changing}
+      isSmall
+    />
+  );
+
   arr[index] = {
     item: "",
-    tail: newCircle,
+    tail: rCircle,
     state: ElementStates.Changing,
   };
   setState([...arr]);

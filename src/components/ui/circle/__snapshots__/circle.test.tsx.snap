@@ -20,6 +20,7 @@ exports[`test Circle component render with changing state 1`] = `
   </div>
   <p
     className="text text_type_input text_color_input mt-4 absolute index"
+    data-cy="circle-index"
   />
   <div
     className="text text_type_input text_color_input mt-4 absolute tail30 element"
@@ -48,6 +49,7 @@ exports[`test Circle component render with default state 1`] = `
   </div>
   <p
     className="text text_type_input text_color_input mt-4 absolute index"
+    data-cy="circle-index"
   />
   <div
     className="text text_type_input text_color_input mt-4 absolute tail30 element"
@@ -82,6 +84,7 @@ exports[`test Circle component render with head-element 1`] = `
   </div>
   <p
     className="text text_type_input text_color_input mt-4 absolute index"
+    data-cy="circle-index"
   />
   <div
     className="text text_type_input text_color_input mt-4 absolute tail30 element"
@@ -112,6 +115,7 @@ exports[`test Circle component render with head-string 1`] = `
   </div>
   <p
     className="text text_type_input text_color_input mt-4 absolute index"
+    data-cy="circle-index"
   />
   <div
     className="text text_type_input text_color_input mt-4 absolute tail30 element"
@@ -140,6 +144,7 @@ exports[`test Circle component render with index 1`] = `
   </div>
   <p
     className="text text_type_input text_color_input mt-4 absolute index"
+    data-cy="circle-index"
   >
     5
   </p>
@@ -170,6 +175,7 @@ exports[`test Circle component render with isSmall 1`] = `
   </div>
   <p
     className="text text_type_input text_color_input mt-4 absolute index"
+    data-cy="circle-index"
   />
   <div
     className="text text_type_input text_color_input mt-4 absolute tail30 element"
@@ -200,6 +206,7 @@ exports[`test Circle component render with letter 1`] = `
   </div>
   <p
     className="text text_type_input text_color_input mt-4 absolute index"
+    data-cy="circle-index"
   />
   <div
     className="text text_type_input text_color_input mt-4 absolute tail30 element"
@@ -228,6 +235,7 @@ exports[`test Circle component render with modified state 1`] = `
   </div>
   <p
     className="text text_type_input text_color_input mt-4 absolute index"
+    data-cy="circle-index"
   />
   <div
     className="text text_type_input text_color_input mt-4 absolute tail30 element"
@@ -256,6 +264,7 @@ exports[`test Circle component render with tail-element 1`] = `
   </div>
   <p
     className="text text_type_input text_color_input mt-4 absolute index"
+    data-cy="circle-index"
   />
   <div
     className="text text_type_input text_color_input mt-4 absolute tail30 element"
@@ -290,6 +299,7 @@ exports[`test Circle component render with tail-string 1`] = `
   </div>
   <p
     className="text text_type_input text_color_input mt-4 absolute index"
+    data-cy="circle-index"
   />
   <div
     className="text text_type_input text_color_input mt-4 absolute tail30 string"
@@ -320,6 +330,7 @@ exports[`test Circle component render without letter 1`] = `
   </div>
   <p
     className="text text_type_input text_color_input mt-4 absolute index"
+    data-cy="circle-index"
   />
   <div
     className="text text_type_input text_color_input mt-4 absolute tail30 element"
