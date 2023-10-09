@@ -1,3 +1,4 @@
+import { circleContentSelector, inputQueue } from "./constants";
 import {
   addElementInQueue,
   checkPrevCircleContentInQueue,
@@ -11,7 +12,7 @@ describe("очередь", () => {
   });
 
   it("проверка блокировки кнопки при пустом инпуте", () => {
-    cy.get('[data-cy="input-queue"]').clear();
+    cy.get(inputQueue).clear();
     cy.get('[data-cy="button-queue-add"]').should("be.disabled");
     cy.get('[data-cy="button-queue-add"] img').should("not.exist");
     cy.get('[data-cy="button-queue-delete"]').should("be.disabled");
@@ -21,12 +22,12 @@ describe("очередь", () => {
   it("элементы добавляются и удаляюттся корректно", () => {
     addElementInQueue("y");
     addElementInQueue("n");
-    cy.get('[data-cy="circle-content"]')
+    cy.get(circleContentSelector)
       .eq(0)
       .should("contain", checkPrevCircleContentInQueue(1));
     addElementInQueue("r");
     addElementInQueue("ss");
-    cy.get('[data-cy="circle-content"]')
+    cy.get(circleContentSelector)
       .eq(3)
       .should("contain", checkPrevCircleContentInQueue(4));
     deleteElementInQueue();

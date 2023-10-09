@@ -1,3 +1,5 @@
+import { circleContentSelector, circleSelector } from "./constants";
+
 describe("строка", () => {
   const word = "task";
   const arr = word.split("");
@@ -16,30 +18,30 @@ describe("строка", () => {
   });
   it("алгоритм разворота строки выполняется корректно", () => {
     cy.get('[data-cy="button-str"]').click();
-    cy.get('[data-cy="circle-content"]').should((circles) => {
+    cy.get(circleContentSelector).should((circles) => {
       expect(circles).to.have.length(word.length);
     });
-    cy.get('[data-cy="circle"]').should("have.css", "border-color", CircleBorder.Default);
+    cy.get(circleSelector).should("have.css", "border-color", CircleBorder.Default);
 
     let start = 0;
     let end = arr.length - 1;
     while (start <= end) {
       cy.wait(1000);
-      cy.get('[data-cy="circle-content"]').eq(start).should("contain", arr[start]);
-      cy.get('[data-cy="circle"]')
+      cy.get(circleContentSelector).eq(start).should("contain", arr[start]);
+      cy.get(circleSelector)
         .eq(start)
         .should("have.css", "border-color", CircleBorder.Changing);
-      cy.get('[data-cy="circle-content"]').eq(end).should("contain", arr[end]);
-      cy.get('[data-cy="circle"]')
+      cy.get(circleContentSelector).eq(end).should("contain", arr[end]);
+      cy.get(circleSelector)
         .eq(end)
         .should("have.css", "border-color", CircleBorder.Changing);
       cy.wait(1000);
-      cy.get('[data-cy="circle-content"]').eq(start).should("contain", arr[end]);
-      cy.get('[data-cy="circle"]')
+      cy.get(circleContentSelector).eq(start).should("contain", arr[end]);
+      cy.get(circleSelector)
         .eq(start)
         .should("have.css", "border-color", CircleBorder.Modified);
-      cy.get('[data-cy="circle-content"]').eq(end).should("contain", arr[start]);
-      cy.get('[data-cy="circle"]')
+      cy.get(circleContentSelector).eq(end).should("contain", arr[start]);
+      cy.get(circleSelector)
         .eq(end)
         .should("have.css", "border-color", CircleBorder.Modified);
       start++;
