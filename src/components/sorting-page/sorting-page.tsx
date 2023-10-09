@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { SolutionLayout } from "../ui/solution-layout/solution-layout";
 import { RadioInput } from "../ui/radio-input/radio-input";
 import styles from "./sorting-page.module.css";
@@ -50,6 +50,9 @@ export const SortingPage: React.FC = () => {
   const getNewArr = () => {
     setArray(getNewArray());
   };
+  useEffect(() => {
+    getNewArr();
+  }, []);
 
   async function visualiseSortInAscending() {
     setIsLoading(visualStateAsc);
