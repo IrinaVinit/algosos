@@ -26,7 +26,6 @@ describe("строка", () => {
     let start = 0;
     let end = arr.length - 1;
     while (start <= end) {
-      cy.wait(1000);
       cy.get(circleContentSelector).eq(start).should("contain", arr[start]);
       cy.get(circleSelector)
         .eq(start)
@@ -35,7 +34,6 @@ describe("строка", () => {
       cy.get(circleSelector)
         .eq(end)
         .should("have.css", "border-color", CircleBorder.Changing);
-      cy.wait(1000);
       cy.get(circleContentSelector).eq(start).should("contain", arr[end]);
       cy.get(circleSelector)
         .eq(start)
