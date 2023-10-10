@@ -14,6 +14,7 @@ export function getNewArray() {
 }
 
 export const swap = (arr: any, start: number, end: number) => {
+  if(!arr.length) return [];
   [arr[start], arr[end]] = [arr[end], arr[start]];
 };
 
@@ -57,17 +58,18 @@ export async function changeElements(
   arr: any[],
   start: number,
   end: number,
-  reverseArrFn: React.SetStateAction<any>
+  reverseArrFn?: React.SetStateAction<any>
 ) {
   while (start <= end) {
-    await timeout(DELAY_IN_MS);
-    changeTwoColor(arr, start, end, ElementStates.Changing, ElementStates.Changing);
-    reverseArrFn([...arr]);
-    await timeout(DELAY_IN_MS);
+    reverseArrFn && await timeout(DELAY_IN_MS);
+    reverseArrFn && changeTwoColor(arr, start, end, ElementStates.Changing, ElementStates.Changing);
+    reverseArrFn && reverseArrFn([...arr]);
+    reverseArrFn && await timeout(DELAY_IN_MS);
     swap(arr, start, end);
-    changeTwoColor(arr, start, end, ElementStates.Modified, ElementStates.Modified);
-    reverseArrFn([...arr]);
+    reverseArrFn && changeTwoColor(arr, start, end, ElementStates.Modified, ElementStates.Modified);
+    reverseArrFn && reverseArrFn([...arr]);
     start++;
     end--;
   }
+  return arr;
 }

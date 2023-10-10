@@ -36,9 +36,9 @@ export async function deleteValue(
     item: "",
     state: ElementStates.Changing,
   };
-  setState(arr);
+  setState([...arr]);
   await timeout(SHORT_DELAY_IN_MS);
   arr[head].state = ElementStates.Default;
   queue.dequeue();
-  setState(arr);
+  setState([...arr]);
 }

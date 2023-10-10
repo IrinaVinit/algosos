@@ -22,6 +22,7 @@ const initialStateActiveElement = {
   disabled: false,
 };
 
+
 export const StringComponent: React.FC = () => {
   const [value, setValue] = useState<string>("");
   const [isReverseArr, setReverseArr] = useState<ReverseElement[]>([]);
@@ -49,6 +50,7 @@ export const StringComponent: React.FC = () => {
           isLimitText
           maxLength={11}
           value={value}
+          data-cy="input-str"
           onChange={onChange}
           disabled={isLoading.disabled}
         />
@@ -57,6 +59,7 @@ export const StringComponent: React.FC = () => {
           onClick={onClick}
           extraClass={styles.button}
           text="Развернуть"
+          data-cy="button-str"
           isLoader={isLoading.loading}
           disabled={!value}
         />

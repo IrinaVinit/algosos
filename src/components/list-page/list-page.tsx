@@ -46,10 +46,14 @@ export const ListPage: React.FC = () => {
 
   const linkList = useMemo(() => new LinkedList<string>(), []);
   const initialArray = ["c", "o", "o", "l"];
-  const newCircle = <Circle letter={value} state={ElementStates.Changing} isSmall />;
+  const newCircle = (
+    <Circle data-cy="smallCircle" letter={value} state={ElementStates.Changing} isSmall />
+  );
 
   const buttonDeleteDisaibled = !linkList.getSize() || isLoading.isLoading;
-  const buttonByIndexDisaibled =
+  const buttonAddByIndexDisaibled =
+    !index || !value || Number(index) < 0 || linkList.getSize() - 1 < Number(index);
+  const buttonDeleteByIndexDisaibled =
     !index || Number(index) < 0 || linkList.getSize() - 1 < Number(index);
   const buttonAddHeadTailDisaibled =
     !value || isLoading.isLoading || linkList.getSize() > 8;
@@ -127,7 +131,8 @@ export const ListPage: React.FC = () => {
       loadingAddIndex: false,
       loadingRemoveIndex: false,
     });
-    await removeElementFromHead(linkList, newCircle, listState, setListState);
+    setIndex("");
+    await removeElementFromHead(linkList, listState, setListState);
     setIsLoading(initialState);
   }
 
@@ -141,7 +146,8 @@ export const ListPage: React.FC = () => {
       loadingAddIndex: false,
       loadingRemoveIndex: false,
     });
-    await removeElementFromTail(linkList, newCircle, listState, setListState);
+    setIndex("");
+    await removeElementFromTail(linkList, listState, setListState);
     setIsLoading(initialState);
   }
 
@@ -165,7 +171,7 @@ export const ListPage: React.FC = () => {
       loadingRemoveIndex: true,
     });
     setIndex("");
-    await removeElementByIndex(index, linkList, newCircle, listState, setListState);
+    await removeElementByIndex(index, linkList, listState, setListState);
     setIsLoading(initialState);
   }
 
@@ -177,6 +183,7 @@ export const ListPage: React.FC = () => {
             isLimitText
             maxLength={4}
             value={value}
+            data-cy="input-value"
             onChange={onChangeValue}
             placeholder="Введите значение"
           />
@@ -184,17 +191,20 @@ export const ListPage: React.FC = () => {
             text="Добавить в head"
             isLoader={isLoading.loadingAddHead}
             disabled={buttonAddHeadTailDisaibled}
+            data-cy="button-list-addHead"
             onClick={visualiseAddingElementToHead}
           />
           <Button
             text="Добавить в tail"
             isLoader={isLoading.loadingAddTail}
             disabled={buttonAddHeadTailDisaibled}
+            data-cy="button-list-addTail"
             onClick={visualiseAddingElementToTail}
           />
           <Button
             text="Удалить из head"
             isLoader={isLoading.loadingRemoveHead}
+            data-cy="button-list-removeHead"
             disabled={buttonDeleteDisaibled}
             onClick={visualiseRemovingElementFromHead}
           />
@@ -202,6 +212,7 @@ export const ListPage: React.FC = () => {
             text="Удалить из tail"
             isLoader={isLoading.loadingRemoveTail}
             disabled={buttonDeleteDisaibled}
+            data-cy="button-list-removeTail"
             onClick={visualiseRemovingElementFromTail}
           />
           <Input
@@ -209,6 +220,7 @@ export const ListPage: React.FC = () => {
             min={0}
             max={listState.length}
             value={index}
+            data-cy="input-index"
             onChange={onChangeIndex}
             placeholder="Введите индекс"
           />
@@ -216,14 +228,16 @@ export const ListPage: React.FC = () => {
             extraClass={styles.addIndex}
             isLoader={isLoading.loadingAddIndex}
             text="Добавить по индексу"
-            disabled={buttonByIndexDisaibled}
+            data-cy="button-list-addIndex"
+            disabled={buttonAddByIndexDisaibled}
             onClick={() => visualiseAddingElementByIndex(Number(index))}
           />
           <Button
             extraClass={styles.removeIndex}
             text="Удалить по индексу"
             isLoader={isLoading.loadingRemoveIndex}
-            disabled={buttonByIndexDisaibled}
+            data-cy="button-list-removeIndex"
+            disabled={buttonDeleteByIndexDisaibled}
             onClick={() => visualiseRemovingElementByIndex(Number(index))}
           />
         </div>
